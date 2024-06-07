@@ -71,6 +71,13 @@ namespace Cmf.CLI.Handlers
                 },
                 new NPMCommand()
                 {
+                    DisplayName = "NPM Config",
+                    Command  = "config",
+                    Args = new []{ "set", "registry", "http://cmf-nuget:4873/" },
+                    WorkingDirectory = cmfPackage.GetFileInfo().Directory
+                },
+                new NPMCommand()
+                {
                     DisplayName = "NPM Install",
                     Command  = "install",
                     Args = new []{ "--force" },
