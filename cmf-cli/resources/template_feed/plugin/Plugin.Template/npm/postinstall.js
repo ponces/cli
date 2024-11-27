@@ -4,7 +4,6 @@
 
 const path = require('path'),
     mkdirp = require('mkdirp'),
-    envPaths = require('env-paths'),
     rimraf = require('rimraf'),
     fs = require('fs'),
     axios = require('axios'),
