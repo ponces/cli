@@ -34,14 +34,15 @@ namespace Cmf.CLI.Commands
         /// <summary>
         /// Executes this instance.
         /// </summary>
-        public void Execute()
+        /// <param name="packagePath">The path of the current package folder</param>
+        public void Execute(IDirectoryInfo packagePath)
         {
             var regex = new Regex("\"?id\"?:\\s+[\"'](.*)[\"']"); // match for menu item IDs
             
             var mesVersion = ExecutionContext.Instance.ProjectConfig.MESVersion;
             Log.Debug($"Generating markdown for a help package for base version {mesVersion}");
 
-            var helpRoot = FileSystemUtilities.GetPackageRootByType(Environment.CurrentDirectory, PackageType.Help, this.fileSystem).FullName;
+            var helpRoot = FileSystemUtilities.GetPackageRootByType(packagePath.FullName, PackageType.Help, this.fileSystem).FullName;
             var project = ExecutionContext.Instance.ProjectConfig.Tenant;
             var helpPackagesRoot = (mesVersion.Major > 9) ? this.fileSystem.Path.Join(helpRoot, "projects") : this.fileSystem.Path.Join(helpRoot, "src", "packages");
             var helpPackages = this.fileSystem.Directory.GetDirectories(helpPackagesRoot);

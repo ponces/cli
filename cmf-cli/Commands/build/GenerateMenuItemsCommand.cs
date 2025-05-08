@@ -43,9 +43,10 @@ namespace Cmf.CLI.Commands
         /// <summary>
         /// Executes this instance.
         /// </summary>
-        public void Execute()
+        /// <param name="packagePath">The path of the current package folder</param>
+        public void Execute(IDirectoryInfo packagePath)
         {
-            var helpRoot = FileSystemUtilities.GetPackageRootByType(Environment.CurrentDirectory, PackageType.Help, this.fileSystem).FullName;
+            var helpRoot = FileSystemUtilities.GetPackageRootByType(packagePath.FullName, PackageType.Help, this.fileSystem).FullName;
             var project = ExecutionContext.Instance.ProjectConfig.Tenant;
             
             var mesVersion = ExecutionContext.Instance.ProjectConfig.MESVersion;
