@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using Cmf.CLI.Core.Enums;
 using Newtonsoft.Json;
@@ -64,6 +65,7 @@ public class ProjectConfigV1
     public Uri DeliveredRepo { get; set; }
     [Newtonsoft.Json.JsonConverter(typeof(UriConverter))]
     public Uri CIRepo { get; set; }
+    public List<Uri> ReleaseRepos { get; set; }
 
     public string Organization { get; set; }
     public string Product { get; set; }
