@@ -93,11 +93,6 @@
       "datatype": "string",
       "replaces": "<%= $CLI_PARAM_RCRepo %>"
     },
-    "DeliveredRepo": {
-      "type": "parameter",
-      "datatype": "string",
-      "replaces": "<%= $CLI_PARAM_DeliveredRepo %>"
-    },
     "CIRepo-JSON": {
       "type": "derived",
       "replaces": "\"<%= $CLI_PARAM_CIRepo %>\"",
@@ -138,12 +133,11 @@
         ]
       }
     },
-    //    "CIRepo_MainBranch-JSON": {
-    //      "type": "derived",
-    //      "replaces": "\"<%= $CLI_PARAM_CIRepo_MainBranch %>\"",
-    //      "valueSource": "CIRepo_MainBranch",
-    //      "valueTransform": "jsonEncode"
-    //    },
+    "DeliveredRepo": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "<%= $CLI_PARAM_DeliveredRepo %>"
+    },
     "DeliveredRepo-JSON": {
       "type": "derived",
       "replaces": "\"<%= $CLI_PARAM_DeliveredRepo %>\"",
