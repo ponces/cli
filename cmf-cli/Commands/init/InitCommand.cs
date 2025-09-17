@@ -383,7 +383,7 @@ namespace Cmf.CLI.Commands
 
             var version = Version.Parse(x.BaseVersion);
             args.AddRange(new []{ "--dotnetSDKVersion", ExecutionContext.ServiceProvider.GetService<IDependencyVersionService>().DotNetSdk(version) });
-            
+
             if (version.Major > 9)
             {
                 if (string.IsNullOrWhiteSpace(x.ngxSchematicsVersion))
@@ -391,6 +391,21 @@ namespace Cmf.CLI.Commands
                     throw new CliException(
                         "--ngxSchematicsVersion is required when targeting a base version of 10 or above.");
                 }
+
+                args.AddRange(new[] {
+                    "--dotnetTestRerunVersion",
+                    version.Major switch {
+                        10 => "1.9.0",
+                        _ => "3.1.1",
+                    }
+                });
+                args.AddRange(new[] {
+                    "--dotnetTrxMergeVersion",
+                    version.Major switch {
+                        10 => "1.3.0",
+                        _ => "2.1.2",
+                    }
+                });
             }
             else
             {

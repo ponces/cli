@@ -487,6 +487,16 @@
       "datatype": "string",
       "replaces": "<%= $CLI_PARAM_DotnetSDKVersion %>"
     },
+    "dotnetTestRerunVersion": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "<%= $CLI_PARAM_DotnetTestRerunVersion %>"
+    },
+    "dotnetTrxMergeVersion": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "<%= $CLI_PARAM_DotnetTrxMergeVersion %>"
+    },
     "appId": {
       "type": "parameter",
       "datatype": "string",
